@@ -1,14 +1,17 @@
-a = float(input("Enter first number: "))
-b = float(input("Enter second number: "))
-op = input("Enter operator (+, -, *, /): ")
+# password_generator.py
 
-if op == "+":
-    print("Result =", a + b)
-elif op == "-":
-    print("Result =", a - b)
-elif op == "*":
-    print("Result =", a * b)
-elif op == "/":
-    print("Result =", a / b)
-else:
-    print("Invalid operator")
+import random
+import string
+
+def generate_password(length=12):
+    chars = string.ascii_letters + string.digits + string.punctuation
+    return "".join(random.choice(chars) for _ in range(length))
+
+print("Password Generator")
+while True:
+    size = int(input("Length of password: "))
+    print("Generated:", generate_password(size))
+
+    again = input("Generate another? (y/n): ")
+    if again.lower() != "y":
+        break
